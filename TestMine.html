@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Имитация Майнинга Криптовалюты</title>
+    <title>Майни Джа-Джа-Коины!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,34 +14,52 @@
             flex-direction: column;
         }
 
-        #miningStatus {
+        #miningStatus, #loadingStatus, #result {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h2>Демонстрация "Майнинга" Криптовалюты</h2>
-    <button onclick="startMining()">Начать майнинг</button>
+    <h2>Джа-Джа-Коины</h2>
+    <button onclick="startMiningAndLoading()">Начать Майнинг</button>
     <div id="miningStatus">Майнинг не начат</div>
+    <div id="loadingStatus">Статус: неактивен</div>
+    <div id="result">Результат: </div>
 
     <script>
-        function startMining() {
-            document.getElementById('miningStatus').innerText = 'Майнинг запущен...';
-            
-            // Имитация процесса майнинга
-            let coinsMined = 0;
-            const miningInterval = setInterval(() => {
-                coinsMined += Math.random(); // Добавляем случайное количество "монет"
-                document.getElementById('miningStatus').innerText = `Майнинг в процессе. Сгенерировано криптовалюты: ${coinsMined.toFixed(3)}`;
+        let miningInterval, loadingInterval;
 
-                // Условие остановки "майнинга" - для демонстрации
-                if(coinsMined > 5) { // Прекращаем майнинг после "добычи" 5 "монет"
-                    clearInterval(miningInterval);
-                    document.getElementById('miningStatus').innerText = `Майнинг завершен. Всего сгенерировано криптовалюты: ${coinsMined.toFixed(3)}`;
-                }
-            }, 1000);
+        function startMiningAndLoading() {
+            document.getElementById('miningStatus').innerText = 'Майнинг запущен...';
+            document.getElementById('loadingStatus').innerText = 'Статус: активен';
+
+            miningInterval = setInterval(doMining, 1000);
+            loadingInterval = setInterval(doHeavyTask, 100);
         }
+
+        function stopMiningAndLoading() {
+            clearInterval(miningInterval);
+            clearInterval(loadingInterval);
+            document.getElementById('miningStatus').innerText = 'Майнинг завершен';
+            document.getElementById('loadingStatus').innerText = 'Статус: завершен';
+        }
+
+        function doMining() {
+            // Имитация процесса майнинга
+            // Добавьте здесь свой код для майнинга
+        }
+
+        function doHeavyTask() {
+            // Просто выполняем некоторые вычислительные задачи
+            for (let i = 0; i < 1000000; i++) {
+                Math.sqrt(Math.random());
+            }
+            document.getElementById('result').innerText += 'Перезапустите Майнер; ';
+        }
+
+        // Добавим обработку остановки майнинга и нагрузки при уходе с страницы
+
     </script>
 
 </body>
