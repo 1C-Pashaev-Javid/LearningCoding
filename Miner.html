@@ -1,3 +1,32 @@
 Mine your cryptocurrency!
 
-<button> MINE </button>
+<button onclick="counterplus()"> MINE </button>
+<div id="counter">0</div>
+
+<style>
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #counter {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  </style>
+
+
+
+<script>
+  function counterplus() {
+      var zhachenieperv = document.getElementById("counter");
+      var znachenieplus = parseInt(znachenieperv.innertext);
+      znachenieperv.innerText = zhachenieplus + 1;
+    
+
+  }
+    
+
+  
+</script>
