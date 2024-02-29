@@ -1,28 +1,26 @@
 Mine your cryptocurrency!
 
-<button onclick="counterplus()"> MINE </button>
+<button onclick="counterplus()">MINE</button>
 <div id="counter">0</div>
 
 <style>
-
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
     }
     #counter {
-      font-size: 24px;
-      margin-top: 10px;
+        font-size: 24px;
+        margin-top: 10px;
     }
-  </style>
-
-
+</style>
 
 <script>
-  function counterplus() {
-      var znachenieperv = document.getElementById("counter");
-      var znachenieplus = parseFloat(znachenieperv.innerText);
-      znachenieperv.innerText = znachenieplus + 0.000001;
+    // Функция для увеличения счетчика
+    function counterplus() {
+        var znachenieperv = document.getElementById("counter");
+        var znachenieplus = parseFloat(znachenieperv.innerText);
+        var newCount = znachenieplus + 0.000001;
         znachenieperv.innerText = newCount.toFixed(6);
         // Сохраняем новое значение в localStorage
         localStorage.setItem("counterValue", newCount.toString());
@@ -40,3 +38,4 @@ Mine your cryptocurrency!
     window.onload = function() {
         loadCounterValue();
     };
+</script>
