@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аномальная Зона - Вход/Регистрация</title>
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Вход</h2>
+        <input type="text" id="loginUsername" placeholder="Логин">
+        <input type="password" id="loginPassword" placeholder="Пароль">
+        <button onclick="login()">Войти</button>
+        <p>или <a href="#" onclick="toggleForms()">зарегистрироваться</a></p>
+    </div>
+
+    <div id="registerForm" style="display: none;">
+        <h2>Регистрация</h2>
+        <input type="text" id="registerUsername" placeholder="Логин">
+        <input type="password" id="registerPassword" placeholder="Пароль">
+        <button onclick="register()">Зарегистрироваться</button>
+        <p>или <a href="#" onclick="toggleForms()">войти</a></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
