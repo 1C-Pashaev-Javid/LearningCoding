@@ -49,6 +49,31 @@ button {
         transform: scale(0.95);
     }
 
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff6bcb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+    box-sizing: border-box; /* Добавлено для учета padding внутри размеров кнопки */
+    display: inline-block; /* Добавлено, чтобы убедиться, что элемент не ведет себя как блочный */
+    vertical-align: middle; /* Выравнивание по вертикали */
+}
+
+button:hover {
+    background-color: #f50057;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+    
 </style>
 </head>
 <body>
