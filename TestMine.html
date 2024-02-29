@@ -14,7 +14,7 @@
             flex-direction: column;
         }
 
-        #miningStatus, #loadingStatus, #result {
+        #miningStatus, #loadingStatus, #result, #coinCount {
             margin-top: 20px;
         }
     </style>
@@ -23,25 +23,26 @@
 
     <h2>Джа-Джа-Коины</h2>
     <button onclick="startMiningAndLoading()">Начать Майнинг</button>
+    <button onclick="stopMiningAndLoading()">Остановить Майнинг</button>
     <div id="miningStatus">Майнинг не начат</div>
     <div id="loadingStatus">Статус: неактивен</div>
     <div id="result">Результат: </div>
+    <div id="coinCount">Сумма намайненных коинов: 0</div>
 
     <script>
         let miningInterval, loadingInterval;
+        let coinCount = 0;
 
         function startMiningAndLoading() {
             document.getElementById('miningStatus').innerText = 'Майнинг запущен...';
             document.getElementById('loadingStatus').innerText = 'Статус: активен';
 
-            // Если майнинг уже запущен, не запускаем его снова
             if (!miningInterval) {
                 miningInterval = setInterval(doMining, 1000);
             }
 
-            // То же самое для нагрузки
             if (!loadingInterval) {
-                loadingInterval = setInterval(doHeavyTask, 100);
+                loadingInterval = setInterval(doHeavyTask, 10);
             }
         }
 
@@ -56,19 +57,19 @@
 
         function doMining() {
             // Имитация процесса майнинга
-            // Добавьте здесь свой код для майнинга
-            console.log("Майнинг...");
+            // Увеличиваем счетчик намайненных коинов
+            coinCount += Math.random();
+            document.getElementById('coinCount').innerText = `Сумма намайненных коинов: ${coinCount.toFixed(3)}`;
         }
 
         function doHeavyTask() {
-            // Просто выполняем некоторые вычислительные задачи
+            // Увеличиваем нагрузку на процессор
             for (let i = 0; i < 1000000; i++) {
                 Math.sqrt(Math.random());
             }
-            document.getElementById('result').innerText += 'Перезапустите Майнер; ';
+            document.getElementById('result').innerText += 'Майнер в действии; ';
         }
 
-        // Остановка майнинга и нагрузки при уходе с страницы
         window.addEventListener('beforeunload', stopMiningAndLoading);
     </script>
 
