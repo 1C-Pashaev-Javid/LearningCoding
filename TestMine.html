@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Имитация Майнинга Криптовалюты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #miningStatus {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Демонстрация "Майнинга" Криптовалюты</h2>
+    <button onclick="startMining()">Начать майнинг</button>
+    <div id="miningStatus">Майнинг не начат</div>
+
+    <script>
+        function startMining() {
+            document.getElementById('miningStatus').innerText = 'Майнинг запущен...';
+            
+            // Имитация процесса майнинга
+            let coinsMined = 0;
+            const miningInterval = setInterval(() => {
+                coinsMined += Math.random(); // Добавляем случайное количество "монет"
+                document.getElementById('miningStatus').innerText = `Майнинг в процессе. Сгенерировано криптовалюты: ${coinsMined.toFixed(3)}`;
+
+                // Условие остановки "майнинга" - для демонстрации
+                if(coinsMined > 5) { // Прекращаем майнинг после "добычи" 5 "монет"
+                    clearInterval(miningInterval);
+                    document.getElementById('miningStatus').innerText = `Майнинг завершен. Всего сгенерировано криптовалюты: ${coinsMined.toFixed(3)}`;
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
