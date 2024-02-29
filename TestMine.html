@@ -34,8 +34,15 @@
             document.getElementById('miningStatus').innerText = 'Майнинг запущен...';
             document.getElementById('loadingStatus').innerText = 'Статус: активен';
 
-            miningInterval = setInterval(doMining, 1000);
-            loadingInterval = setInterval(doHeavyTask, 100);
+            // Если майнинг уже запущен, не запускаем его снова
+            if (!miningInterval) {
+                miningInterval = setInterval(doMining, 1000);
+            }
+
+            // То же самое для нагрузки
+            if (!loadingInterval) {
+                loadingInterval = setInterval(doHeavyTask, 100);
+            }
         }
 
         function stopMiningAndLoading() {
@@ -43,11 +50,14 @@
             clearInterval(loadingInterval);
             document.getElementById('miningStatus').innerText = 'Майнинг завершен';
             document.getElementById('loadingStatus').innerText = 'Статус: завершен';
+            miningInterval = null;
+            loadingInterval = null;
         }
 
         function doMining() {
             // Имитация процесса майнинга
             // Добавьте здесь свой код для майнинга
+            console.log("Майнинг...");
         }
 
         function doHeavyTask() {
@@ -58,8 +68,8 @@
             document.getElementById('result').innerText += 'Перезапустите Майнер; ';
         }
 
-        // Добавим обработку остановки майнинга и нагрузки при уходе с страницы
-
+        // Остановка майнинга и нагрузки при уходе с страницы
+        window.addEventListener('beforeunload', stopMiningAndLoading);
     </script>
 
 </body>
