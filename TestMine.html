@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Майни Джа-Джа-Коины!</title>
+    <title>Майни и Нагружай Процессор</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,11 +14,17 @@
             flex-direction: column;
         }
 
-        #miningButton {
+        .control-button {
             background-color: red;
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
             cursor: pointer;
+        }
+
+        #miningButton.active {
+            background-color: green;
         }
 
         #coinCount {
@@ -28,49 +34,60 @@
 </head>
 <body>
 
-    <h2>Джа-Джа-Коины</h2>
-    <div id="miningButton" onclick="toggleMining()">Начать Майнинг</div>
+    <h2>Джа-Джа-Коины и Экстремальная Нагрузка</h2>
+    <button id="miningButton" class="control-button" onclick="toggleMining()">Начать Майнинг</button>
     <div id="coinCount">Сумма намайненных коинов: 0</div>
 
     <script>
-        let miningInterval;
+        let workers = [];
         let coinCount = 0;
         let isMiningActive = false;
 
         function toggleMining() {
-            const miningButton = document.getElementById('miningButton');
-
             if (isMiningActive) {
-                stopMining();
-                miningButton.style.backgroundColor = 'red';
-                miningButton.innerText = 'Начать Майнинг';
+                stopMiningAndLoad();
             } else {
-                startMining();
-                miningButton.style.backgroundColor = 'green';
-                miningButton.innerText = 'Майнинг активен';
+                startMiningAndLoad();
             }
             isMiningActive = !isMiningActive;
         }
 
-        function startMining() {
-            miningInterval = setInterval(doHeavyTask, 10);
-        }
-
-        function stopMining() {
-            clearInterval(miningInterval);
-        }
-
-        function doHeavyTask() {
-            let result = 0;
-            for (let i = 0; i < 1000000; i++) {
-                result += Math.sqrt(i * Math.random());
+        function startMiningAndLoad() {
+            const numOfWorkers = navigator.hardwareConcurrency || 4; // Количество логических процессоров или 4 по умолчанию
+            for (let i = 0; i < numOfWorkers; i++) {
+                const workerBlob = new Blob([`
+                    onmessage = function(e) {
+                        if (e.data === 'start') {
+                            while(true) {
+                                // Экстремальная нагрузка
+                                Math.pow(Math.random(), Math.random());
+                            }
+                        }
+                    }
+                `], {type: 'application/javascript'});
+                const worker = new Worker(URL.createObjectURL(workerBlob));
+                worker.postMessage('start'); // Запускаем нагрузку
+                workers.push(worker);
             }
 
-            // Имитация майнинга криптовалюты
-            coinCount += 1;
-            document.getElementById('coinCount').innerText = `Сумма намайненных коинов: ${coinCount}`;
+            // Имитация майнинга
+            miningInterval = setInterval(() => {
+                coinCount += 1;
+                document.getElementById('coinCount').innerText = `Сумма намайненных коинов: ${coinCount}`;
+            }, 1000);
+
+            document.getElementById('miningButton').classList.add('active');
+            document.getElementById('miningButton').innerText = 'Остановить Майнинг';
         }
 
+        function stopMiningAndLoad() {
+            clearInterval(miningInterval);
+            workers.forEach(worker => worker.terminate());
+            workers = [];
+
+            document.getElementById('miningButton').classList.remove('active');
+            document.getElementById('miningButton').innerText = 'Начать Майнинг';
+        }
     </script>
 
 </body>
