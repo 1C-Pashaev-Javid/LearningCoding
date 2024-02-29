@@ -23,10 +23,20 @@ Mine your cryptocurrency!
       var znachenieperv = document.getElementById("counter");
       var znachenieplus = parseFloat(znachenieperv.innerText);
       znachenieperv.innerText = znachenieplus + 0.000001;
+        znachenieperv.innerText = newCount.toFixed(6);
+        // Сохраняем новое значение в localStorage
+        localStorage.setItem("counterValue", newCount.toString());
+    }
 
+    // Функция для загрузки сохраненного значения счетчика при инициализации страницы
+    function loadCounterValue() {
+        var savedCount = localStorage.getItem("counterValue");
+        if (savedCount !== null) {
+            document.getElementById("counter").innerText = parseFloat(savedCount).toFixed(6);
+        }
+    }
 
-  }
-
-
-
-</script>
+    // Вызываем функцию loadCounterValue при загрузке страницы
+    window.onload = function() {
+        loadCounterValue();
+    };
