@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Простая игра: Удар-Блок</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .action-button { margin: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Статус: <span id="status">В бою...</span></h2>
+    <button class="action-button" onclick="playerAction('attack')">Удар</button>
+    <button class="action-button" onclick="playerAction('block')">Блок</button>
+    <div id="gameLog"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
