@@ -1,11 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  СЕЙМУР СМОРТИ Я ПРОГРАММИСТ!!!!
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Индекс</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
+    h1 {
+      color: #333;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .text {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .text:hover {
+      color: #2ecc71;
+    }
+
+    .dynamic-element {
+      width: 50px;
+      height: 50px;
+      background-color: #e74c3c;
+      margin: 10px;
+      border-radius: 50%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .dynamic-element:hover {
+      transform: scale(1.2);
+    }
+
+    .animated-text {
+      font-size: 18px;
+      color: #27ae60;
+      animation: colorChange 2s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      from { color: #27ae60; }
+      to { color: #e74c3c; }
+    }
+  </style>
+</head>
 <body>
 
+  <h1>Привет, Сеймур Сморти! Я программист!</h1>
 
-<a href="https://1c-pashaev-javid.github.io/LearningCoding/Miner.html" class="text">Miner class text</a>
+  <div class="button-container">
+    <a href="https://1c-pashaev-javid.github.io/LearningCoding/Miner.html" class="text">Miner class text</a>
+    <button onclick="showAlert()">Майнер</button>
+    <button onclick="animateElement()">Кнопка 2</button>
+    
+    <!-- Добавление динамичных элементов -->
+    <div class="dynamic-element"></div>
+    <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+       <div class="dynamic-element"></div>
+    
+    <div class="dynamic-element"></div>
+    <!-- Повторите несколько раз для добавления дополнительных динамичных элементов -->
 
-  
+    <!-- Добавление анимированного текста -->
+    <p class="animated-text">Этот текст меняет цвет!</p>
+  </div>
+
+  <script>
+    function showAlert() {
+      alert('Майнер!');
+    }
+
+    function animateElement() {
+      var element = document.querySelector('.button-container');
+      element.style.transform = 'rotate(360deg)';
+      setTimeout(function () {
+        element.style.transform = 'rotate(0deg)';
+      }, 1000);
+    }
+  </script>
 </body>
+</html>
