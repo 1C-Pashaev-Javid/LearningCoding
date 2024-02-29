@@ -1,10 +1,11 @@
-Mine your cryptocurrency!
-
-<button onclick="counterplus()"> MINE </button>
-<div id="counter">0</div>
-
-<style>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Счетчик</title>
+  <style>
+    /* Здесь можно добавить CSS для стилизации кнопки и счетчика */
     button {
       padding: 10px 20px;
       font-size: 16px;
@@ -15,18 +16,19 @@ Mine your cryptocurrency!
       margin-top: 10px;
     }
   </style>
+</head>
+<body>
 
-
+<button onclick="counterplus()">MINE</button>
+<div id="counter">0</div>
 
 <script>
   function counterplus() {
-      var zhachenieperv = document.getElementById("counter");
-      var znachenieplus = parseInt(znachenieperv.innertext);
-      znachenieperv.innerText = zhachenieplus + 1;
-    
-
+    var zhachenieperv = document.getElementById("counter");
+    var znachenieperv = parseInt(zhachenieperv.innerText);
+    zhachenieperv.innerText = znachenieperv + 1;
   }
-    
-
-  
 </script>
+
+</body>
+</html>
