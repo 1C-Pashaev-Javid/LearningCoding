@@ -1,101 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моя креативная страница</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      /* Добавление абстрактного фона */
-      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-
-    h1 {
-      color: white;
-      text-shadow: 2px 2px 4px #000000;
-    }
-
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .text, button {
-      text-decoration: none;
-      color: #3498db;
-      font-weight: bold;
-      transition: color 0.3s ease-in-out;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .text:hover, button:hover {
-      color: #2ecc71;
-    }
-
-    .dynamic-element, .animated-text {
-      background-color: rgba(255, 255, 255, 0.5);
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .dynamic-element {
-      width: 50px;
-      height: 50px;
-      margin: 10px;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .dynamic-element:hover {
-      transform: scale(1.2);
-    }
-
-    .animated-text {
-      font-size: 18px;
-      color: #27ae60;
-      animation: colorChange 2s infinite alternate;
-    }
-
-    @keyframes colorChange {
-      from { color: #27ae60; }
-      to { color: #e74c3c; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Minimalist Homepage</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <h1>Привет, Сеймур Сморти! Я программист!</h1>
-
-  <div class="button-container">
-    <a href="https://1c-pashaev-javid.github.io/LearningCoding/Miner.html">Miner v1</a>
-    <a href="https://1c-pashaev-javid.github.io/LearningCoding/TestMine.html">AI Miner Demo</a>
-    <!-- Добавьте другие кнопки и элементы здесь -->
-  </div>
-
-  <script>
-    function showAlert() {
-      alert('Привет, это кнопка 1!');
-    }
-
-    function animateElement() {
-      // Пример анимации для элементов
-    }
-  </script>
+    <header class="header">
+        <div class="logo">LOGO</div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <h1>Welcome to the Future</h1>
+            <p>Your gateway to a new era of technology and design</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Futuristic Corp. All rights reserved.</p>
+    </footer>
 </body>
 </html>
