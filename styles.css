@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(120deg, #d3e0ea, #a1c4fd);
+    background: #f0f4f8;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -78,41 +78,46 @@ body {
 }
 
 .app-item, .useful-item {
-    display: flex;
-    align-items: center;
     background-color: #fff;
-    margin-bottom: 15px;
+    border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    transition: transform 0.3s ease;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .app-item:hover, .useful-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .app-icon, .useful-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    float: left;
     margin-right: 20px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .app-details, .useful-details {
-    flex: 1;
+    overflow: hidden;
 }
 
 .app-details h2, .useful-details h2 {
-    margin: 0 0 10px;
+    margin: 0;
     font-size: 1.5em;
 }
 
 .app-details p, .useful-details p {
-    margin: 0 0 10px;
+    margin: 10px 0;
     color: #666;
 }
 
 .download-button {
+    display: inline-block;
     background-color: #2e3b4e;
     color: #fff;
     padding: 10px 20px;
