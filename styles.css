@@ -70,36 +70,57 @@ body {
     background-color: #a1c4fd;
 }
 
-.app-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
+.footer {
+    background-color: #2e3b4e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
 }
 
-.app-item {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
+.app-item, .useful-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 15px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    text-align: left;
-    width: 250px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-.app-item:hover {
+.app-item:hover, .useful-item:hover {
     transform: translateY(-5px);
 }
 
-.app-icon {
-    width: 100%;
-    height: 150px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.app-icon, .useful-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
 }
 
-.app-title {
-    font
+.app-details, .useful-details {
+    flex: 1;
+}
+
+.app-details h2, .useful-details h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.app-details p, .useful-details p {
+    margin: 0 0 10px;
+    color: #666;
+}
+
+.download-button {
+    background-color: #2e3b4e;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #a1c4fd;
+}
